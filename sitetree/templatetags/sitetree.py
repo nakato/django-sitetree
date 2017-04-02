@@ -301,7 +301,6 @@ def render(context, tree_items, use_template):
     if isinstance(use_template, FilterExpression):
         use_template = use_template.resolve(context)
 
-    content = get_template(use_template).render(context)
-    context.pop()
+    content = get_template(use_template).render(context.pop())
 
     return content
